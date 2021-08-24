@@ -105,13 +105,9 @@ static int cb(struct nfq_q_handle *qh, struct nfgenmsg *nfmsg,
 
     printf("entering callback\n");
 
-    get_pl = nfq_get_payload(nfa, &data);
 
-    if(get_pl>=0){
-    	printf("getting payload\n");
-        acc_or_drop = netfilter(data, host, host_name,host_len)? NF_ACCEPT : NF_DROP;
-        printf("%d\n",acc_or_drop);
-    }
+    printf("getting payload\n");
+    acc_or_drop = netfilter(data, host_name,host_len)? NF_ACCEPT : NF_DROP;
 
 
     return nfq_set_verdict(qh, id, acc_or_drop, 0, NULL);
