@@ -25,7 +25,7 @@ int netfilter(unsigned char* buffer, char* host, char* host_name, int host_len)
                 printf("Host!!!!!!!!!!!!\n");
                 
                 while(1){
-                	if(buffer[i+6] == 0x0d || buffer[i+6] == 0x0d){
+                	if(buffer[i+6] == 0x0d || buffer[i+6] == 0x0){
                 		break;
 			}
 			if(j > host_len + 100) break;
